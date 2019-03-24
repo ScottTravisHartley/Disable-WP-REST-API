@@ -1,18 +1,18 @@
 <?php 
 /*
-	Plugin Name: Disable WordPress REST API
-	Plugin URI: https://github.com/ScottTravisHartley/Disable-WP-REST-API
-	Description: Disables the WP REST API for visitors not logged into WordPress.
-	Author: SERT Media
-	Author URI: https://www.sertmedia.com
-	Version: 1.0
+Plugin Name: Disable WordPress REST API
+Plugin URI: https://github.com/ScottTravisHartley/Disable-WP-REST-API
+Description: Disables the WP REST API for visitors not logged into WordPress.
+Author: SERT Media
+Author URI: https://www.sertmedia.com
+Version: 1.0
 */
 
 /* Disable REST API link in HTTP headers */
-remove_action('template_redirect', 'rest_output_link_header', 11);
+remove_action('template_redirect', 'rest_output_link_header', PHP_INT_MAX);
 
 /* Disable REST API links in HTML */
-remove_action('wp_head', 'rest_output_link_wp_head', 10);
+remove_action('wp_head', 'rest_output_link_wp_head', PHP_INT_MAX);
 remove_action('xmlrpc_rsd_apis', 'rest_output_rsd');
 
 /* Disable REST API */
